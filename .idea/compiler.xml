@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Mobile Automation Framework" target="1.5" />
+      <module name="Mobile Automation Framework" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,0 +1,17 @@
+package Runner;
+
+import cucumber.api.CucumberOptions;
+import cucumber.api.testng.AbstractTestNGCucumberTests;
+
+@CucumberOptions(
+        features = {"src/test/java/Features"},
+        glue = "Steps",
+        monochrome = true,
+        tags = {
+                "@A_LoginUrl"
+        })
+
+public class TestRunner extends AbstractTestNGCucumberTests {
+
+
+}
