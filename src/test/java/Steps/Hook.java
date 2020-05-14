@@ -24,7 +24,7 @@ public class Hook extends BaseUtil {
         this.base = base;
     }
 
-    @Before("")
+    @Before("@A_LoginUrl")
     public void setUpAppium() throws MalformedURLException {
         System.out.println("### BEFORE HOOK Triggered");
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -111,7 +111,7 @@ public class Hook extends BaseUtil {
         }
     }
 
-    @After("")
+    @After("@A_LoginUrl")
     public void TearDownTest(Scenario scenario) {
 
         if (scenario.isFailed()) {
