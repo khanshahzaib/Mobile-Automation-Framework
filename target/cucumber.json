@@ -1,0 +1,62 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 35174300400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.setUpAppium()"
+            }
+          }
+        ],
+        "line": 5,
+        "name": "Verify that the user can enter Valid Credentials",
+        "description": "",
+        "id": "sign-in-module;verify-that-the-user-can-enter-valid-credentials",
+        "after": [
+          {
+            "result": {
+              "duration": 319200,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.TearDownTest(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 245361700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user can see the launch of the Application",
+            "match": {
+              "location": "SignInSD.userCanSeeTheLaunchOfTheApplication()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "line": 4,
+            "name": "@A_LoginUrl"
+          }
+        ]
+      }
+    ],
+    "name": "Sign In Module",
+    "description": "This sign in feature deals with the sign in functionality of the application",
+    "id": "sign-in-module",
+    "keyword": "Feature",
+    "uri": "A_SignIn.feature"
+  }
+]
