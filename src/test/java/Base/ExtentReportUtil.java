@@ -22,13 +22,13 @@ public class ExtentReportUtil extends BaseUtil {
         htmlReporter.config().setTheme(Theme.STANDARD);
         htmlReporter.config().setDocumentTitle("Test Report For Selenium with Cucumber");
         htmlReporter.config().setEncoding("utf-8");
-        htmlReporter.config().setReportName("Toll Pays Test Report");
+        htmlReporter.config().setReportName("Test Report");
 
         extent.attachReporter(htmlReporter);
     }
 
     public void ExtentReportScreenshots() throws IOException {
-        var scr = ((TakesScreenshot) Web_Driver).getScreenshotAs(OutputType.FILE);
+        var scr = ((TakesScreenshot) appiumDriver).getScreenshotAs(OutputType.FILE);
         Files.copy(scr.toPath(), new File(reportLocation + "screenshot.png").toPath());
         scenarioDef.fail("details").addScreenCaptureFromPath(reportLocation + "screenshot.png");
     }

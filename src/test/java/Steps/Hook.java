@@ -33,7 +33,7 @@ public class Hook extends BaseUtil {
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.1");
                 capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone X");
-                capabilities.setCapability(MobileCapabilityType.APP, "Users/skillorbit/Downloads/MyApp.app");
+                capabilities.setCapability(MobileCapabilityType.APP, "Users/cc/Downloads/MyApp.app");
                 capabilities.setCapability("noReset", true);
                 URL url = new URL("http://192.168.1.102:4723/wd/hub");
                 appiumDriver = new AppiumDriver(url, capabilities);
@@ -42,7 +42,7 @@ public class Hook extends BaseUtil {
             }
             case "Android": {
                 capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME, "com.nbo.mobs");
-                capabilities.setCapability(MobileCapabilityType.APP, "C:\\NBO\\NBO_9080.apk");
+                capabilities.setCapability(MobileCapabilityType.APP, "C:\\cc\\MyApp.apk");
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0"); //Tablet
 //            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "52008136c013b493"); //Tablet
@@ -73,8 +73,8 @@ public class Hook extends BaseUtil {
                 }
 
 //                without config file
-//                capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\IBS\\Downloads\\NBO_9080.apk"); //Server Emulator
-//                capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\IBS\\Downloads\\NBO_9080.apk"); //Server Emulator
+//                capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\IBS\\Downloads\\MyApp.apk"); //Server Emulator
+//                capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\IBS\\Downloads\\MyApp.apk"); //Server Emulator
 //                capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 ////                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1"); //Emulator
 //                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,FileReaderManager.getInstance().getConfigReader().getPlatformVersion()); //Emulator
@@ -98,8 +98,8 @@ public class Hook extends BaseUtil {
                 capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, FileReaderManager.getInstance().getConfigReader().getAutomationName());
                 URL url = new URL(FileReaderManager.getInstance().getConfigReader().getAppiumServerEndpoint());
 
-                base.appiumDriver = new AndroidDriver(url,capabilities);
-                base.appiumDriver.manage().timeouts().implicitlyWait(
+                appiumDriver = new AndroidDriver(url,capabilities);
+                appiumDriver.manage().timeouts().implicitlyWait(
                         FileReaderManager.getInstance().getConfigReader().getImplicitWaitTime(),
                         TimeUnit.SECONDS);
                 break;
