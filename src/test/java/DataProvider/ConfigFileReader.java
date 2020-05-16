@@ -116,4 +116,12 @@ public class ConfigFileReader {
         if(implicitWaitTimeUnit != null) return implicitWaitTimeUnit;
         else throw new RuntimeException("implicitWaitTimeUnit not specified in the Configuration.properties file.");
     }
+
+    //region This Function is used to get key value of a TollPays App Keywords File Path
+    public String getTollPaysAppKeywords() {
+        String excelPath = properties.getProperty("tollPaysKeywords");
+        if (excelPath != null) return excelPath;
+        else throw new RuntimeException("TollPaysAppKeywords not specified in the Configuration.properties file.");
+    }
+    //endregion
 }

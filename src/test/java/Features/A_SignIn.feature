@@ -4,8 +4,8 @@ Feature: Sign In Module
   @A_LoginUrl
   Scenario: Verify that the user can enter Valid Credentials
     Given user can see the launch of the Application
-#    When user enters correct Email Address
-#    And user enters correct password
-#    Then user proceeds to the CheckIn Screen
+    When user enters correct Email Address
+    And user enters correct password
+    Then user proceeds to the CheckIn Screen
 
 

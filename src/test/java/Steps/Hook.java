@@ -2,6 +2,7 @@ package Steps;
 
 import Base.BaseUtil;
 import DataProvider.FileReaderManager;
+import Utilities.ReadExcel;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -98,10 +99,11 @@ public class Hook extends BaseUtil {
                 capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, FileReaderManager.getInstance().getConfigReader().getAutomationName());
                 URL url = new URL(FileReaderManager.getInstance().getConfigReader().getAppiumServerEndpoint());
 
-                appiumDriver = new AndroidDriver(url,capabilities);
+                appiumDriver = new AppiumDriver(url,capabilities);
                 appiumDriver.manage().timeouts().implicitlyWait(
                         FileReaderManager.getInstance().getConfigReader().getImplicitWaitTime(),
                         TimeUnit.SECONDS);
+                ReadExcel.readExcelFile();
                 break;
             }
             default:

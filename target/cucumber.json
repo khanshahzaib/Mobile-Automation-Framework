@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 35174300400,
+              "duration": 36538750200,
               "status": "passed"
             },
             "match": {
@@ -18,23 +18,12 @@
         "name": "Verify that the user can enter Valid Credentials",
         "description": "",
         "id": "sign-in-module;verify-that-the-user-can-enter-valid-credentials",
-        "after": [
-          {
-            "result": {
-              "duration": 319200,
-              "status": "passed"
-            },
-            "match": {
-              "location": "Hook.TearDownTest(Scenario)"
-            }
-          }
-        ],
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 245361700,
+              "duration": 8248629200,
               "status": "passed"
             },
             "line": 6,
@@ -43,6 +32,42 @@
               "location": "SignInSD.userCanSeeTheLaunchOfTheApplication()"
             },
             "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 84813100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user enters correct Email Address",
+            "match": {
+              "location": "SignInSD.userEntersCorrectEmailAddress()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 548436100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user enters correct password",
+            "match": {
+              "location": "SignInSD.userEntersCorrectPassword()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 566010000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user proceeds to the CheckIn Screen",
+            "match": {
+              "location": "SignInSD.userProceedsToTheCheckInScreen()"
+            },
+            "keyword": "Then "
           }
         ],
         "tags": [
