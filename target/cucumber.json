@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 36538750200,
+              "duration": 31750463200,
               "status": "passed"
             },
             "match": {
@@ -18,54 +18,64 @@
         "name": "Verify that the user can enter Valid Credentials",
         "description": "",
         "id": "sign-in-module;verify-that-the-user-can-enter-valid-credentials",
+        "after": [
+          {
+            "result": {
+              "duration": 1647940600,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.TearDownTest(Scenario)"
+            }
+          }
+        ],
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 8248629200,
+              "duration": 101823600,
               "status": "passed"
             },
             "line": 6,
             "name": "user can see the launch of the Application",
             "match": {
-              "location": "SignInSD.userCanSeeTheLaunchOfTheApplication()"
+              "location": "SignUpSD.userCanSeeTheLaunchOfTheApplication()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 84813100,
-              "status": "passed"
+              "duration": 1027300,
+              "error_message": "java.lang.NullPointerException\r\n\tat Steps.SignUpSD.userEntersCorrectEmailAddress(SignUpSD.java:25)\r\n\tat ✽.When user enters correct Email Address(A_SignIn.feature:7)\r\n",
+              "status": "failed"
             },
             "line": 7,
             "name": "user enters correct Email Address",
             "match": {
-              "location": "SignInSD.userEntersCorrectEmailAddress()"
+              "location": "SignUpSD.userEntersCorrectEmailAddress()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 548436100,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 8,
             "name": "user enters correct password",
             "match": {
-              "location": "SignInSD.userEntersCorrectPassword()"
+              "location": "SignUpSD.userEntersCorrectPassword()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "duration": 566010000,
-              "status": "passed"
+              "status": "skipped"
             },
             "line": 9,
             "name": "user proceeds to the CheckIn Screen",
             "match": {
-              "location": "SignInSD.userProceedsToTheCheckInScreen()"
+              "location": "SignUpSD.userProceedsToTheCheckInScreen()"
             },
             "keyword": "Then "
           }

@@ -117,11 +117,11 @@ public class ConfigFileReader {
         else throw new RuntimeException("implicitWaitTimeUnit not specified in the Configuration.properties file.");
     }
 
-    //region This Function is used to get key value of a TollPays App Keywords File Path
-    public String getTollPaysAppKeywords() {
-        String excelPath = properties.getProperty("tollPaysKeywords");
+    //region This Function is used to get key value of a Selendroid App Keywords File Path
+    public String getSelendroidAppKeywords() {
+        String excelPath = properties.getProperty("selendroidKeywords");
         if (excelPath != null) return excelPath;
-        else throw new RuntimeException("TollPaysAppKeywords not specified in the Configuration.properties file.");
+        else throw new RuntimeException("SelendroidAppKeywords not specified in the Configuration.properties file.");
     }
     //endregion
 }

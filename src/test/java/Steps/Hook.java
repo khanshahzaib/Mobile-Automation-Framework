@@ -7,7 +7,6 @@ import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -25,7 +24,7 @@ public class Hook extends BaseUtil {
         this.base = base;
     }
 
-    @Before("@A_LoginUrl")
+    @Before("@A_Register")
     public void setUpAppium() throws MalformedURLException {
         System.out.println("### BEFORE HOOK Triggered");
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -46,10 +45,6 @@ public class Hook extends BaseUtil {
                 capabilities.setCapability(MobileCapabilityType.APP, "C:\\cc\\MyApp.apk");
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.1.0"); //Tablet
-//            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "52008136c013b493"); //Tablet
-//            capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.0"); //Qurat
-//            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "HGH7N17915008245"); //Qurat
-                // capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.0"); //Lenovo
                 capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554"); //Lenovo
                 capabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
                 capabilities.setCapability("unicodeKeyboard", true);
@@ -62,32 +57,13 @@ public class Hook extends BaseUtil {
             }
             case "Emulator": {
                 System.out.println("## Config file works ##");
-//                capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME, "com.nbo.mobs");
 
                 try {
-//                    number = Integer.parseInt(input);
-//                    capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME,"nbo.com.mobs");
                     capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME,FileReaderManager.getInstance().getConfigReader().getApkName());
                 } catch (NumberFormatException nfe) {
                     System.out.println("## catch exception ##");
                     nfe.printStackTrace();
                 }
-
-//                without config file
-//                capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\IBS\\Downloads\\MyApp.apk"); //Server Emulator
-//                capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\IBS\\Downloads\\MyApp.apk"); //Server Emulator
-//                capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-////                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1"); //Emulator
-//                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,FileReaderManager.getInstance().getConfigReader().getPlatformVersion()); //Emulator
-//                capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, FileReaderManager.getInstance().getConfigReader().getDeviceName()); //Emulator
-////                capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554"); //Emulator
-//                capabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
-//                capabilities.setCapability("unicodeKeyboard", true);
-//                capabilities.setCapability("resetKeyboard", false);
-//                capabilities.setCapability("noReset", true);
-//                capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-
-//                with config file
                 capabilities.setCapability(MobileCapabilityType.APP, FileReaderManager.getInstance().getConfigReader().getApkPath());
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, FileReaderManager.getInstance().getConfigReader().getPlatformName());
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,FileReaderManager.getInstance().getConfigReader().getPlatformVersion());
@@ -113,7 +89,7 @@ public class Hook extends BaseUtil {
         }
     }
 
-    @After("@A_LoginUrl")
+    @After("@A_Register")
     public void TearDownTest(Scenario scenario) {
 
         if (scenario.isFailed()) {

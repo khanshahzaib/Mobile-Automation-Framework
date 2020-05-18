@@ -22,7 +22,7 @@ public class BaseUtil {
 
     public static ExtentTest features;
 
-    static String reportLocation = "/Reports/TollPays/Mobile/";
+    static String reportLocation = "/Reports/Selendroid/Mobile/";
 
     public static XSSFSheet mSheet;
 

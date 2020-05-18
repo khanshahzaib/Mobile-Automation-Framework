@@ -18,7 +18,7 @@ public class ReadExcel extends BaseUtil {
             return;
         }
 
-        File src = new File(configFileReader.getTollPaysAppKeywords());
+        File src = new File(configFileReader.getSelendroidAppKeywords());
 
         try {
             // Open the Excel file

@@ -9,7 +9,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
         glue = "Steps",
         monochrome = true,
         tags = {
-                "@A_LoginUrl"
+                "@A_Register"
         })
 
 public class TestRunner extends AbstractTestNGCucumberTests {
