@@ -14,26 +14,73 @@ public class SignUpSD extends BaseUtil {
     @Given("user can see the launch of the Application")
     public void userCanSeeTheLaunchOfTheApplication() {
         System.out.println("user can see the launch of the Application");
-//        SignUpPage = new SignUpPage(appiumDriver);
-//        SignUpPage.waitForSignUpDOMElements();
-//        SignUpPage.loadControlsForSignUpDOMElements();
+        SignUpPage = new SignUpPage(appiumDriver);
+        SignUpPage.waitForAppLaunch();
+        SignUpPage.loadControlsForAppLaunch();
     }
 
-    @When("user enters correct Email Address")
-    public void userEntersCorrectEmailAddress() {
-        System.out.println("user enters correct Email Address");
-        SignUpPage.loginEmailAddress();
+    @When("user can click on the Registration Link")
+    public void userCanClickOnTheRegistrationLink() {
+        System.out.println("user can click on the Registration Link");
+        SignUpPage.regLink();
     }
 
-    @And("user enters correct password")
-    public void userEntersCorrectPassword() {
-        System.out.println("user enters correct password");
-        SignUpPage.loginPassword();
+    @And("user see the Registration Screen")
+    public void userSeeTheRegistrationScreen() {
+        System.out.println("user see the Registration Screen");
+        SignUpPage.waitForSignUpDOMElements();
+        SignUpPage.loadControlsForSignUpDOMElements();
     }
 
-    @Then("user proceeds to the CheckIn Screen")
-    public void userProceedsToTheCheckInScreen() {
-        System.out.println("user proceeds to the CheckIn Screen");
-        SignUpPage.loginSignUpButton();
+    @And("user enters the username")
+    public void userEntersTheUsername() {
+        System.out.println("user enters the username");
+        SignUpPage.enterUsername();
+    }
+
+    @And("user enters Email Address")
+    public void userEntersEmailAddress() {
+        System.out.println("user enters Email Address");
+        SignUpPage.enterEmailAddress();
+    }
+
+    @And("user enters password")
+    public void userEntersPassword() {
+        System.out.println("user enters password");
+        SignUpPage.enterPassword();
+    }
+
+    @And("user enters name")
+    public void userEntersName() {
+        System.out.println("user enters name");
+        SignUpPage.enterName();
+    }
+
+    @And("user selects programming language")
+    public void userSelectsProgrammingLanguage() {
+        System.out.println("user selects programming language");
+        SignUpPage.waitForLanguageOption();
+        SignUpPage.loadControlsForLanguageOption();
+        SignUpPage.selectLanguage();
+    }
+
+    @And("user checks on the TandC checkbox")
+    public void userChecksOnTheTandCCheckbox() {
+        System.out.println("user checks on the TandC checkbox");
+        SignUpPage.checkTandC();
+    }
+
+    @Then("user clicks on the Register Button")
+    public void userClicksOnTheRegisterButton() {
+        System.out.println("user clicks on the Register Button");
+        SignUpPage.registerButton();
+    }
+
+    @And("user verifies as a Register User")
+    public void userVerifiesAsARegisterUser() {
+        System.out.println("user verifies as a Register User");
+        SignUpPage.waitForVerifiesUser();
+        SignUpPage.loadControlsForVerifiesUser();
+        SignUpPage.verifiesUser();
     }
 }

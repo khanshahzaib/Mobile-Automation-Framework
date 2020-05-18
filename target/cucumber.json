@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 31750463200,
+              "duration": 26667971000,
               "status": "passed"
             },
             "match": {
@@ -15,13 +15,13 @@
           }
         ],
         "line": 5,
-        "name": "Verify that the user can enter Valid Credentials",
+        "name": "Verify that the user can register through the application",
         "description": "",
-        "id": "sign-in-module;verify-that-the-user-can-enter-valid-credentials",
+        "id": "sign-up-module;verify-that-the-user-can-register-through-the-application",
         "after": [
           {
             "result": {
-              "duration": 1647940600,
+              "duration": 357500,
               "status": "passed"
             },
             "match": {
@@ -34,7 +34,7 @@
         "steps": [
           {
             "result": {
-              "duration": 101823600,
+              "duration": 521368700,
               "status": "passed"
             },
             "line": 6,
@@ -46,52 +46,137 @@
           },
           {
             "result": {
-              "duration": 1027300,
-              "error_message": "java.lang.NullPointerException\r\n\tat Steps.SignUpSD.userEntersCorrectEmailAddress(SignUpSD.java:25)\r\n\tat ✽.When user enters correct Email Address(A_SignIn.feature:7)\r\n",
-              "status": "failed"
+              "duration": 149095900,
+              "status": "passed"
             },
             "line": 7,
-            "name": "user enters correct Email Address",
+            "name": "user can click on the Registration Link",
             "match": {
-              "location": "SignUpSD.userEntersCorrectEmailAddress()"
+              "location": "SignUpSD.userCanClickOnTheRegistrationLink()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 2713442800,
+              "status": "passed"
             },
             "line": 8,
-            "name": "user enters correct password",
+            "name": "user see the Registration Screen",
             "match": {
-              "location": "SignUpSD.userEntersCorrectPassword()"
+              "location": "SignUpSD.userSeeTheRegistrationScreen()"
             },
             "keyword": "And "
           },
           {
             "result": {
-              "status": "skipped"
+              "duration": 107062700,
+              "status": "passed"
             },
             "line": 9,
-            "name": "user proceeds to the CheckIn Screen",
+            "name": "user enters the username",
             "match": {
-              "location": "SignUpSD.userProceedsToTheCheckInScreen()"
+              "location": "SignUpSD.userEntersTheUsername()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 575233100,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user enters Email Address",
+            "match": {
+              "location": "SignUpSD.userEntersEmailAddress()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 526950400,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user enters password",
+            "match": {
+              "location": "SignUpSD.userEntersPassword()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1568974900,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "user enters name",
+            "match": {
+              "location": "SignUpSD.userEntersName()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2353610500,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "user selects programming language",
+            "match": {
+              "location": "SignUpSD.userSelectsProgrammingLanguage()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 135923800,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "user checks on the TandC checkbox",
+            "match": {
+              "location": "SignUpSD.userChecksOnTheTandCCheckbox()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1370650400,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "user clicks on the Register Button",
+            "match": {
+              "location": "SignUpSD.userClicksOnTheRegisterButton()"
             },
             "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 237526600,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "user verifies as a Register User",
+            "match": {
+              "location": "SignUpSD.userVerifiesAsARegisterUser()"
+            },
+            "keyword": "And "
           }
         ],
         "tags": [
           {
             "line": 4,
-            "name": "@A_LoginUrl"
+            "name": "@A_Register"
           }
         ]
       }
     ],
-    "name": "Sign In Module",
-    "description": "This sign in feature deals with the sign in functionality of the application",
-    "id": "sign-in-module",
+    "name": "Sign Up Module",
+    "description": "This sign up feature deals with the sign up functionality of the application",
+    "id": "sign-up-module",
     "keyword": "Feature",
-    "uri": "A_SignIn.feature"
+    "uri": "A_SignUp.feature"
   }
 ]
