@@ -18,7 +18,7 @@ public class BaseUtil {
 
     public static ExtentReports extent;
 
-    static ExtentTest scenarioDef;
+    public static ExtentTest scenarioDef;
 
     public static ExtentTest features;
 

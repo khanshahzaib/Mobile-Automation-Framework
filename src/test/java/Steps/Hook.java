@@ -25,8 +25,10 @@ public class Hook extends BaseUtil {
     }
 
     @Before("@A_Register")
-    public void setUpAppium() throws MalformedURLException {
+    public void setUpAppium(Scenario scenario) throws MalformedURLException {
         System.out.println("### BEFORE HOOK Triggered");
+
+        scenarioDef = features.createNode(scenario.getName());
         DesiredCapabilities capabilities = new DesiredCapabilities();
         switch (myDriver) {
             case "iOS": {
