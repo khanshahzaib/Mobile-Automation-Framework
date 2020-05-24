@@ -15,11 +15,12 @@ public class ConfigFileReader {
     //region This function is used to read the Key Value Pairs from the Config File
     public ConfigFileReader(){
         BufferedReader reader;
-        String propertyFilePath = "Configuration//Config.properties";
+        String propertyFilePath = "src//test//resources//Configuration//Config.properties";
         try {
             reader = new BufferedReader(new FileReader(propertyFilePath));
             properties = new Properties();
             try {
+                //to load a file from the current directory
                 properties.load(reader);
                 reader.close();
             } catch (IOException e) {

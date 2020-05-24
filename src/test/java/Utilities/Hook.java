@@ -1,4 +1,4 @@
-package Steps;
+package Utilities;
 
 import Base.BaseUtil;
 import DataProvider.FileReaderManager;
@@ -17,14 +17,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Hook extends BaseUtil {
 
-    private BaseUtil base;
     public String myDriver = FileReaderManager.getInstance().getConfigReader().getDriverName();
 
-    public Hook(BaseUtil base) {
-        this.base = base;
-    }
-
     @Before("@A_Register")
+    //region
     public void setUpAppium(Scenario scenario) throws MalformedURLException {
         System.out.println("### BEFORE HOOK Triggered");
 
@@ -90,8 +86,10 @@ public class Hook extends BaseUtil {
                 break;
         }
     }
+    //endregion
 
     @After("@A_Register")
+    //region
     public void TearDownTest(Scenario scenario) {
 
         if (scenario.isFailed()) {
@@ -100,6 +98,9 @@ public class Hook extends BaseUtil {
             return;
         }
 
+        appiumDriver.quit();
+
         System.out.println("Closing the Driver : Appium Driver");
     }
+    //endregion
 }

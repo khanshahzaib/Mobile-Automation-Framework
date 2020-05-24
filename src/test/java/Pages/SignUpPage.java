@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SignUpPage extends BaseUtil {
 
     public SignUpPage(AppiumDriver driver) {
+        //This initElements method will create all WebElements
         PageFactory.initElements(driver, this);
         mSheet = wb.getSheetAt(0);
     }
