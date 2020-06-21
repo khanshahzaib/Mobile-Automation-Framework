@@ -12,6 +12,10 @@ import java.io.FileInputStream;
 
 public class BaseUtil {
 
+    //Variable's declaration
+
+    //region
+
     public static AppiumDriver appiumDriver;
 
     protected static WebDriver Web_Driver;
@@ -31,4 +35,9 @@ public class BaseUtil {
     public static XSSFWorkbook wb;
 
     public static WebDriverWait webDriverWait;
+
+    public static final int TIMEOUT = 10;
+
+    //endregion
+
 }

@@ -12,7 +12,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SignUpPage extends BaseUtil {
 
+
     public SignUpPage(AppiumDriver driver) {
+        /*It only has a constructor which takes a AppiumDriver object and passes it on to its superclass constructor.*/
+        //WebDriver’s PageFactory class to initialize WebElements
         //This initElements method will create all WebElements
         PageFactory.initElements(driver, this);
         mSheet = wb.getSheetAt(0);
@@ -50,38 +53,38 @@ public class SignUpPage extends BaseUtil {
 
     public void waitForAppLaunch(){
 
-        WebDriverWait waitRegistration = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitRegistration = new WebDriverWait(appiumDriver, TIMEOUT);
         waitRegistration.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(1, 2))));
     }
 
     public void waitForSignUpDOMElements(){
 
-        WebDriverWait waitUsername = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitUsername = new WebDriverWait(appiumDriver, TIMEOUT);
         waitUsername.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(2,2))));
 
-        WebDriverWait waitEmail = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitEmail = new WebDriverWait(appiumDriver, TIMEOUT);
         waitEmail.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(3,2))));
 
-        WebDriverWait waitPassword = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitPassword = new WebDriverWait(appiumDriver, TIMEOUT);
         waitPassword.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(4,2))));
 
-        WebDriverWait waitName = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitName = new WebDriverWait(appiumDriver, TIMEOUT);
         waitName.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(5,2))));
 
-        WebDriverWait waitLanguage = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitLanguage = new WebDriverWait(appiumDriver, TIMEOUT);
         waitLanguage.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(6,2))));
 
-        WebDriverWait waitCheckbox = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitCheckbox = new WebDriverWait(appiumDriver, TIMEOUT);
         waitCheckbox.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(8,2))));
 
-        WebDriverWait waitRegister = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitRegister = new WebDriverWait(appiumDriver, TIMEOUT);
         waitRegister.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(9,2))));
 
@@ -89,14 +92,14 @@ public class SignUpPage extends BaseUtil {
     }
 
     public void waitForLanguageOption(){
-        WebDriverWait waitOption = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitOption = new WebDriverWait(appiumDriver, TIMEOUT);
         waitOption.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 xpath(ReadExcel.GetCellValue(7,3))));
     }
 
     public void waitForVerifiesUser(){
 
-        WebDriverWait waitUser = new WebDriverWait(appiumDriver, 20);
+        WebDriverWait waitUser = new WebDriverWait(appiumDriver, TIMEOUT);
         waitUser.until(ExpectedConditions.presenceOfElementLocated(MobileBy.
                 id(ReadExcel.GetCellValue(10,2))));
     }
