@@ -9,12 +9,11 @@ import cucumber.api.java.en.When;
 
 public class SignUpSD extends BaseUtil {
 
-    SignUpPage SignUpPage;
+    SignUpPage SignUpPage = new SignUpPage(appiumDriver);
 
     @Given("user can see the launch of the Application")
     public void userCanSeeTheLaunchOfTheApplication() {
         System.out.println("user can see the launch of the Application");
-        SignUpPage = new SignUpPage(appiumDriver);
         SignUpPage.waitForAppLaunch();
         SignUpPage.loadControlsForAppLaunch();
     }
