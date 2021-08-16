@@ -1,13 +1,11 @@
 package Utilities;
 
 import Base.BaseUtil;
-import DataProvider.FileReaderManager;
-import Utilities.ReadExcel;
+import DataProvider.ConfigFileReader;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -18,8 +16,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Hook extends BaseUtil {
 
+    ConfigFileReader configFileReader = new ConfigFileReader();
+
     private BaseUtil base;
-    public String myDriver = FileReaderManager.getInstance().getConfigReader().getDriverName();
+    public String myDriver = configFileReader.getDriverName();
 
     public Hook(BaseUtil base) {
         this.base = base;
@@ -29,6 +29,7 @@ public class Hook extends BaseUtil {
     public void setUpAppium() throws MalformedURLException {
         System.out.println("### BEFORE HOOK Triggered");
         DesiredCapabilities capabilities = new DesiredCapabilities();
+
         switch (myDriver) {
             case "iOS": {
                 capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
@@ -43,16 +44,16 @@ public class Hook extends BaseUtil {
             }
             case "Android": {
                 try {
-                    capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME,FileReaderManager.getInstance().getConfigReader().getApkName());
+                    capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME,configFileReader.getApkName());
                 } catch (NumberFormatException nfe) {
                     System.out.println("## catch exception ##");
                     nfe.printStackTrace();
                 }
-                capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, FileReaderManager.getInstance().getConfigReader().getPlatformName());
-                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,FileReaderManager.getInstance().getConfigReader().getPlatformVersion());
-                capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, FileReaderManager.getInstance().getConfigReader().getDeviceName());
-                capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, FileReaderManager.getInstance().getConfigReader().getAutomationName1());
-                capabilities.setCapability(MobileCapabilityType.APP, FileReaderManager.getInstance().getConfigReader().getApkPath());
+                capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, configFileReader.getPlatformName());
+                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,configFileReader.getPlatformVersion());
+                capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, configFileReader.getDeviceName());
+                capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, configFileReader.getAutomationName1());
+                capabilities.setCapability(MobileCapabilityType.APP, configFileReader.getApkPath());
                 capabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
                 capabilities.setCapability("unicodeKeyboard", true);
                 capabilities.setCapability("resetKeyboard", false);
@@ -60,7 +61,7 @@ public class Hook extends BaseUtil {
                 URL url = new URL("http://127.0.0.1:4723/wd/hub");
                 appiumDriver = new AppiumDriver(url, capabilities);
                 appiumDriver.manage().timeouts().implicitlyWait(
-                        FileReaderManager.getInstance().getConfigReader().getImplicitWaitTime(),
+                        configFileReader.getImplicitWaitTime(),
                         TimeUnit.SECONDS);
                 ReadExcel.readExcelFile();
                 break;
@@ -69,16 +70,16 @@ public class Hook extends BaseUtil {
                 System.out.println("## Config file works ##");
 
                 try {
-                    capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME,FileReaderManager.getInstance().getConfigReader().getApkName());
+                    capabilities.setCapability(MobileCapabilityType.APPLICATION_NAME,configFileReader.getApkName());
                 } catch (NumberFormatException nfe) {
                     System.out.println("## catch exception ##");
                     nfe.printStackTrace();
                 }
-                capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, FileReaderManager.getInstance().getConfigReader().getPlatformName());
-                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,FileReaderManager.getInstance().getConfigReader().getPlatformVersion());
-                capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, FileReaderManager.getInstance().getConfigReader().getDeviceNameEmulator());
-                capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, FileReaderManager.getInstance().getConfigReader().getAutomationName1());
-                capabilities.setCapability(MobileCapabilityType.APP, FileReaderManager.getInstance().getConfigReader().getApkPath());
+                capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, configFileReader.getPlatformName());
+                capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,configFileReader.getPlatformVersion());
+                capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, configFileReader.getDeviceNameEmulator());
+                capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, configFileReader.getAutomationName1());
+                capabilities.setCapability(MobileCapabilityType.APP, configFileReader.getApkPath());
                 capabilities.setCapability(MobileCapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.ACCEPT);
                 capabilities.setCapability("unicodeKeyboard", true);
                 capabilities.setCapability("resetKeyboard", false);
@@ -86,14 +87,14 @@ public class Hook extends BaseUtil {
                 URL url = new URL("http://127.0.0.1:4723/wd/hub");
                 appiumDriver = new AppiumDriver(url, capabilities);
                 appiumDriver.manage().timeouts().implicitlyWait(
-                        FileReaderManager.getInstance().getConfigReader().getImplicitWaitTime(),
+                        configFileReader.getImplicitWaitTime(),
                         TimeUnit.SECONDS);
                 ReadExcel.readExcelFile();
                 break;
             }
             default:
                 System.out.println("This is a Web Page");
-                System.out.println(FileReaderManager.getInstance().getConfigReader().getDriverName());
+                System.out.println(configFileReader.getDriverName());
                 break;
         }
     }
